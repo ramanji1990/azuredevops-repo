@@ -19,12 +19,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-service
+  name: nginx-cluster-ip-service
 spec:
+  selector:
+    app: nginx
   ports:
   - name: http
-    targetPort: 80
     port: 80
-  selector:
-    app: nginx-app
-  type: LoadBalancer
+    targetPort: 80
+  type: ClusterIP
